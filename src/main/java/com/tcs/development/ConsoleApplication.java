@@ -29,21 +29,21 @@ public class ConsoleApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        OrderItemDto itemOneDto = new OrderItemDto();
-        itemOneDto.setQuantity(13);
-        itemOneDto.setCurrency(Currency.PEN);
-        itemOneDto.setPrice(new BigDecimal(300));
-        itemOneDto.setProductId(2L);
-
-        OrderItemDto itemTwoDto = new OrderItemDto();
-        itemTwoDto.setQuantity(10);
-        itemTwoDto.setCurrency(Currency.PEN);
-        itemTwoDto.setPrice(new BigDecimal(500));
-        itemTwoDto.setProductId(5L);
-
         List<OrderItemDto> itemDtoList = new ArrayList<>();
-        itemDtoList.add(itemOneDto);
-        itemDtoList.add(itemTwoDto);
+        
+        OrderItemDto itemDto = new OrderItemDto();
+        itemDto.setQuantity(13);
+        itemDto.setCurrency(Currency.PEN);
+        itemDto.setPrice(new BigDecimal(300));
+        itemDto.setProductId(2L);
+        itemDtoList.add(itemDto);
+
+        itemDto = new OrderItemDto();
+        itemDto.setQuantity(10);
+        itemDto.setCurrency(Currency.PEN);
+        itemDto.setPrice(new BigDecimal(500));
+        itemDto.setProductId(5L);
+        itemDtoList.add(itemDto);
 
         this.orderController.createOrder(itemDtoList, OrderType.TYPE_ONE);
         this.orderController.createOrder(itemDtoList, OrderType.TYPE_TWO);
